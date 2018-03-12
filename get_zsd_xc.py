@@ -46,10 +46,10 @@ def fetch_tk_item(content, url):
     lis = None
 
     for i in range(1, int(max_page) + 1):
-        print('max_page=%s page=%s first=%s\n%s' % (max_page, i, first, url))
+        print('max_page=%s | page=%s | first=%s\n%s' % (max_page, i, first, url))
         if first:
             lis = content.find('div', class_='tk-con').find_all('li')
-            print('url = %s' % url)
+            # print('url = %s' % url)
             first = False
         else:
             # 第二页开始到最大页数
@@ -61,7 +61,7 @@ def fetch_tk_item(content, url):
 
         fetch_list(lis)
 
-        print('------------ 休息一下 -------\n')
+        print('------------ 休息一下， 5 秒后继续... -------\n')
         time.sleep(5)
 
     first = True
